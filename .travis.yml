@@ -37,6 +37,10 @@ script:
   - cd drupal8.dev
   - php ../drupal.phar site:install standard --langcode=en --db-type=sqlite --db-file=sites/default/files/.ht.sqlite --site-name="Drupal 8 Site Install" --site-mail=admin@example.com --account-name=admin --account-mail=admin@example.com --account-pass=admin --no-interaction
   - php ../drupal.phar chain --file=$PROJECT_DIR/config/dist/chain/sample.yml
+  - ls --standard=~/.composer/vendor/drupal/coder/coder_sniffer/Drupal/
+  - ls $PROJECT_DIR/drupal8.dev/modules/custom/example
+  - ~/.composer/vendor/bin/phpcs --help
+  - ~/.composer/vendor/bin/phpcs --standard=~/.composer/vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml $PROJECT_DIR/drupal8.dev/modules/custom/example
   - ~/.composer/vendor/bin/phpcs --warning-severity=0 --standard=~/.composer/vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml $PROJECT_DIR/drupal8.dev/modules/custom/example
 
 notifications:
